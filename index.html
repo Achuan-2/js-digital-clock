@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="line.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="digital-clock">
+        <i class="dot-menu-btn" id="active-menu">:</i>
+        <ul class="dot-menu" id="active-menu">
+            <li class="menu-item" id="active-menu">
+                <span class="clock-format-text" id="active-menu">12-hour format</span>
+                <div class="format-switch-btn" data-format="24" id="active-menu"></div>
+            </li>
+        </ul>
+        <div class="time">
+            <span class="hours">00</span>
+            <span class="dots">:</span>
+            <span class="minutes">00</span>
+            <div class="right-side">
+                <span class="period">AM/PM</span>
+                <span class="seconds">00</span>
+            </div>
+        </div>
+        <div class="calendar">
+            <span class="day-name">Day</span>,
+            <span class="month-name">Month</span>&nbsp
+            <span class="day-number">00</span>,
+            <span class="year">0000</span>
+        </div>
+    </div>
+    <script>
+        // javascript for switch clock format
+        const formatSwitchBtn = document.querySelector('.format-switch-btn');
+        formatSwitchBtn.addEventListener('click', () =>{
+            formatSwitchBtn.classList.toggle('active');
+            var formatValue = formatSwitchBtn.getAttribute('data-format');
+            if(formatValue == '12'){
+                formatSwitchBtn.setAttribute('data-format', '24');
+            }
+            else{
+                formatSwitchBtn.setAttribute('data-format', '12');
+            }
+        });
+        //get current time in javascipt
+        function clock(){
+            var today = new Date();
+            var hours = today.getHours();
+            var minutes = today.getMinutes();
+            var seconds = today.getSeconds();
+            var period="";
+            // set the 12-hour clock format
+            var formatValue = formatSwitchBtn.getAttribute('data-format');
+            if(formatValue == '12'){
+                if(hours > 12){
+                    hours = hours - 12;
+                    period = "PM";
+                }
+                else{
+                    period = "AM";
+            }
+
+            }
+            // add the 0 the values lower than 0
+            if (hours < 10) {
+                hours = "0" + hours;
+            }
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+            document.querySelector(".hours").innerHTML = hours;
+            document.querySelector(".minutes").innerHTML = minutes;
+            document.querySelector(".seconds").innerHTML = seconds;
+            document.querySelector(".period").innerHTML = period;
+
+            // get the date in javascript
+            var today = new Date();
+            var dayNumber = today.getDate();
+            var year = today.getFullYear();
+            var month = today.getMonth() + 1;
+            if (month < 10) {
+                month = "0" + month;
+            }
+            var monthName = today.toLocaleString('en', { month: 'short' });
+            var dayName = today.toLocaleString('en', { weekday: 'long' });
+            document.querySelector(".month-name").innerHTML = monthName
+            document.querySelector(".day-name").innerHTML = dayName;
+            document.querySelector(".day-number").innerHTML = dayNumber;
+            document.querySelector(".year").innerHTML = year;
+
+        }
+        var update_clock = setInterval(clock, 1000);
+
+
+
+        // javacript for dot menu toggle
+        const dotMenuBtn = document.querySelector('.dot-menu-btn');
+        const dotMenu = document.querySelector('.dot-menu');
+        dotMenuBtn.addEventListener('click', () =>{
+            dotMenu.classList.toggle('active');
+        });
+        // click other place to close the dot menu
+        document.addEventListener('click', (e) =>{
+            if (e.target.id != 'active-menu') {
+                dotMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
