@@ -139,11 +139,20 @@ body {
     justify-content: center;
     align-items: center;
     padding: 1vw 1vw 1vw 0px;
+    flex-direction: column;
+}
+.menu-item div{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-direction: row;
 }
 .clock-format-text{
     color:#efefef;
     font-size: 2vw;
     margin-left: 2vw;
+    width: 23vw;
+    vertical-align: middle;
 }
 .format-switch-btn{
     width: 3.5vw;
@@ -155,6 +164,7 @@ body {
     justify-content: center;
     margin-left: 10px;
     align-items: center;
+    flex-direction: column;
 }
 .format-switch-btn::before{
     content: "";
@@ -172,4 +182,10 @@ body {
 .format-switch-btn.active::before{
     background: #0bff8d;
     transform: translateX(1vw);
+}
+.todo .format-switch-btn::before{
+    background-color: gray;
+}
+.todo .clock-format-text {
+    color: gray;
 }
