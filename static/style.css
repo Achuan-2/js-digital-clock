@@ -98,7 +98,7 @@ body {
     -webkit-background-clip: text;
 }
 
-.day-name,.year{
+.day-name,.month-name,.year{
     margin-left: 8px;
 }
 .dot-menu-btn{
