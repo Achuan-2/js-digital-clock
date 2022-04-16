@@ -110,6 +110,8 @@ body {
     font-size: 3vw;
     cursor: pointer;
     font-style: normal !important;
+    width: 4vw;
+    text-align: center;
 }
 .dot-menu{
     z-index:99;
@@ -125,6 +127,7 @@ body {
     transition: 0.3s ease;
     top: 5vh;
     position: relative;
+    
 
 }
 .dot-menu.active{
@@ -143,8 +146,8 @@ body {
     margin-left: 2vw;
 }
 .format-switch-btn{
-    width: 35px;
-    height: 15px;
+    width: 3.5vw;
+    height: 1.5vw;
     background: #485470;
     border-radius: 75px;
     box-shaow:inset 2px 2px 4px rgba(255, 255, 255, 0.1),inset -2px -2px 4px rgba(0, 0, 0, 0.2);
@@ -156,17 +159,17 @@ body {
 .format-switch-btn::before{
     content: "";
     position: absolute;
-    width: 14px;
-    height: 14px;
+    width: 1.4vw;
+    height: 1.4vw;
     background: #ff5e9a;
     border-radius: 50%;
     box-shadow:0 50x 25px #ff5e9a;
-    transform: translateX(-10px);
+    transform: translateX(-1vw);
     transition: 0.3s ease;
     transition-property: background, transform;
 
 }
 .format-switch-btn.active::before{
     background: #0bff8d;
-    transform: translateX(10px);
+    transform: translateX(1vw);
 }
