@@ -15,7 +15,7 @@ function clock() {
 	var hours = today.getHours();
 	var minutes = today.getMinutes();
 	var seconds = today.getSeconds();
-	var period = "&nbsp";
+	var period = "&nbsp;&nbsp;";
 	// set the 12-hour clock format
 	var formatValue = formatSwitchBtn.getAttribute("data-format");
 	if (formatValue == "12") {

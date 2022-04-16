@@ -32,7 +32,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: -6vh;
+    top: -4vh;
 
 }
 .hours,.dots,.minutes{
@@ -69,6 +69,9 @@ body {
     flex-direction: column;
     right: -1vw;
 }
+.period {
+    width: 2em;
+}
 .period,.seconds{
     font-size: 3vw;
     font-weight: 500;
@@ -92,7 +95,7 @@ body {
     align-items: center;
     font-size:3vw;
     font-weight: 500;
-    top: -5vh;
+    top: -4vh;
     background: -webkit-linear-gradient(90deg, #ae4af6, #ff98d1);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -135,11 +138,16 @@ body {
     opacity: 1;
 }
 .menu-item{
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1vw 1vw 1vw 0px;
     flex-direction: column;
+    /* min-height: 100vh; */
+    background-color: #353e54;
+    right: -48vw;
+    /* top: -18vh; */
 }
 .menu-item div{
     display: flex;
